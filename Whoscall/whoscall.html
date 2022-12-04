@@ -9,13 +9,13 @@
         *{
             margin: 0;
             padding: 0;
-            font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
         }
         body{
+            font-family: 'Noto Sans TC', 'Roboto', -apple-system, 'Avenir Next', 'Microsoft JhengHei', '微軟正黑體';
             padding-top: 80px;
         }
         .outline{
-            width: 960px;
+            max-width: 960px;
             margin: auto;
             position: relative;
         }
@@ -60,7 +60,7 @@
             height: 50%;
             font-size: 18px;
             color: white;
-            background-color: rgb(13, 173, 13);
+            background-color: #00BB00;
             border: none;
             border-radius: 100px;
         }
@@ -85,7 +85,7 @@
         }
         .title{
             font-size: 40px;
-            color: green;
+            color: #00BB00;
             margin-bottom: 10px;
 
         }
@@ -94,7 +94,7 @@
             margin: 20px 0;
         }
         .bigpic .smallword{
-            color: green;
+            color: #00BB00;
             font-size: 10px;
             padding: 10px 0px 0px 20px;
         }
@@ -103,7 +103,7 @@
             font-size: 20px;
             width: 180px;
             height: 50px;
-            background-color: green;
+            background-color: #00BB00;
             border: none;
             border-radius: 30px;
         }
@@ -121,11 +121,14 @@
             text-align: left;
         }
         .percent{
-            color: green;
+            color: #00BB00;
         }
         .section1 p{
             font-size: 30px;
         }
+        .section1 p:first-child{
+            font-size: 25px;
+        } 
         .section1 p:last-child,
         .section2 .memo{
             color: gray;
@@ -147,7 +150,7 @@
             text-align: left;
         }
         .word p:first-child{
-            color: rgb(39, 163, 39);
+            color: #00BB00;
             text-align: left;
             font-size: 30px;
         }
@@ -166,7 +169,7 @@
         .box2{
             font-weight: bold;
             margin-top: 20px;
-            margin-right: 60px;
+            margin-right: 50px;
         }
         .section3 h2{
             font-size: 20px;
@@ -199,21 +202,21 @@
             width: 250px;
             height: 280px;
             margin: 20px;
-            background-image: url(/Whoscall/picture/asset\ 9.svg),url(/Whoscall/picture/91app.png);
-            background-size: 30px,120px;
+            background-image: url(/Whoscall/picture/greendot.png),url(/Whoscall/picture/91app.png);
+            background-size: 45px,120px;
             background-repeat: no-repeat;
-            background-position: 15px 10px,110px 210px;
+            background-position: 8px 5px,110px 210px;
             text-align: left;
         }
         .box3:first-child{
-            background-image: url(/Whoscall/picture/asset\ 9.svg),url(/Whoscall/picture/tree.png);
-            background-size: 30px,160px;
-            background-position: 15px 10px,70px 220px;
-        }
+            background-image: url(/Whoscall/picture/greendot.png),url(/Whoscall/picture/tree.png);
+            background-size: 45px,160px;
+            background-position: 8px 5px,70px 220px;
+        }   
         .box3:last-child{
-            background-image: url(/Whoscall/picture/asset\ 9.svg),url(/Whoscall/picture/pc24_1.jpg);
-            background-size: 30px,200px;
-            background-position: 15px 10px,30px 230px;
+            background-image: url(/Whoscall/picture/greendot.png),url(/Whoscall/picture/pc24_1.jpg);
+            background-size: 45px,200px;
+            background-position: 8px 5px,30px 230px;
         }
         .box3 h3,
         .section4 h3{
@@ -235,7 +238,7 @@
         }
         .section4 p{
             margin: 20px;
-            color: green;
+            color: #00BB00;
             font-weight: bold;
         }
         .listsection{
@@ -265,7 +268,8 @@
             cursor: pointer;
         }
         .table td:hover,
-        .box6 span:hover{
+        .box6 span:hover
+        .websitepic .smallpic a:hover{
             color: antiquewhite;
             cursor: pointer;
         }
@@ -297,7 +301,7 @@
             mix-blend-mode: multiply;
             margin-right: 15px;
         }
-        .smallpic img+p{
+        .smallpic a+p{
             color: lightgray;
             font-size: 10px;
             margin: 20px 0px 10px 0px;
@@ -327,10 +331,21 @@
             background-color: rgb(66, 65, 70);
         }
         mark{
+            color: rgb(88, 85, 85);
             white-space: pre-line;
             border-radius: 5px;
             background-color: transparent;
-            background: linear-gradient(transparent 40%, rgba(255,255,255,0) 50%, #e6fcf2  75%, #e6fcf2 90%, transparent 95%);
+            background: linear-gradient(180deg,transparent,transparent,lightblue );
+        }
+        .title mark{
+            color: #00BB00;
+            white-space: pre-line;
+            border-radius: 5px;
+            background-color: transparent;
+            background: linear-gradient(180deg,transparent,transparent,white 100% );
+        }
+        sup{
+            font-size: 15px;
         }
     </style>
 </head>
@@ -351,14 +366,14 @@
         </div>
         <div class="bigpic">
             <div class="bigpicword">
-                <h1 class="title">whoscall 認證號碼</h1>
+                <h1 class="title"><mark>whoscall 認證號碼&emsp;</mark></h1>
                 <p>電話接通前<br>讓專業形象為你開場！</p>
                 <button class="picbutton">立即申請</button>
                 <p class="smallword">企業方案優惠 $200/月 起</p>
             </div>
         </div>
         <div class="section1">
-            <p>根據市場調查顯示※</p>
+            <p>根據市場調查顯示<sup>※</sup></p>
             <p>超過<span class="percent">60%</span>的民眾會選擇忽視或<br>拒接陌生來電。</p>
             <p>※Pollster 波仕特線上市調 (2014)</p>
         </div>
@@ -424,11 +439,11 @@
                 </div>
                 <div class="box3">
                     <h3><br>高接聽率讓合作更有效<br>率!</h3>
-                    <p>設定 Whoscall 認證號碼後，電商客戶的接聽率明顯比以前高很多！和客戶討論案子的速度更順利、也更能即時給客戶完整的營運建議！</p>
+                    <p>設定 Whoscall 認證號碼後，<mark>電商客戶的接聽率明顯比以前高很多！</mark>和客戶討論案子的速度更順利、也更能即時給客戶完整的營運建議！</p>
                 </div>
                 <div class="box3">
                     <h3><br>接聽意願提高，配送更快<br>速!</h3>
-                    <p>透過 Whoscall Number 服務，讓顧客接聽意願變高，也讓我們的物流司機更容易掌握顧客的狀況，網購商品能更即時且有效率的送達。</p>
+                    <p>透過 Whoscall Number 服務，讓顧客接聽意願變高，也讓我們的<mark>物流司機更容易掌握顧客的狀況，</mark>網購商品能更即時且有效率的送達。</p>
                 </div>
             </div>
         </div>
@@ -475,10 +490,10 @@
                 <div class="websitepic">
                     <h3>追蹤我們</h3>
                     <div class="smallpic">
-                        <img src="/Whoscall/picture/ig.png" alt="">
-                        <img src="/Whoscall/picture/fb.png" alt="">
-                        <img src="/Whoscall/picture/twitter.png" alt="">
-                        <img src="/Whoscall/picture/yt.png" alt="">
+                        <a href="#"><img borde="0" src="/Whoscall/picture/ig.png" alt=""></a>
+                        <a href="#"><img borde="0" src="/Whoscall/picture/fb.png" alt=""></a>
+                        <a href="#"><img borde="0" src="/Whoscall/picture/twitter.png" alt=""></a>
+                        <a href="#"><img borde="0" src="/Whoscall/picture/yt.png" alt=""></a>
                         <p>Powered by</p>
                         <p class="gogolook">Gogolook</p>
                     </div>
