@@ -5,8 +5,502 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+        }
+        body{
+            padding-top: 80px;
+        }
+        .outline{
+            width: 960px;
+            margin: auto;
+            position: relative;
+        }
+        .topline{
+            width: 960px;
+            position: fixed;
+            top: 0;
+            opacity: .9;
+        }
+        .topline,
+        .leftnav{
+            background-color: white;
+            display: flex;
+            height: 80px;
+        }
+        .leftnav{
+            width: 800px;
+        }
+        .topline img{
+            width: 150px;
+            height: 80px;
+            margin: 0px 10px;
+        }
+        .topline a{
+            color: black;
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 35px 10px;
+
+        }
+        .leftnav a:hover{
+            color: rgb(32, 170, 32);  
+        }
+        .topline .rightnav{
+            width: 150px;
+            height: 80px;
+            margin: 20px 20px 0 80px;
+        }
+        .topbutton{
+            width: 100%;
+            height: 50%;
+            font-size: 18px;
+            color: white;
+            background-color: rgb(13, 173, 13);
+            border: none;
+            border-radius: 100px;
+        }
+        .picbutton:hover,
+        .topbutton:hover{
+            background-color: rgb(40, 211, 40);
+            cursor: pointer;
+        }
+        .bigpic{
+            width: 100%;
+            height: 500px;
+            margin-top: 0px;
+            background-image:url(/Whoscall/picture/asset\ 7.svg),url(/Whoscall/picture/asset\ 8.svg),url(picture/bigpic.jpg);
+            background-size: 150px, 200px, cover;
+            background-repeat: no-repeat;
+            background-position: left top, right bottom, center center ;
+            font-weight: bold;
+        }
+        .bigpicword{
+            padding-left: 150px;
+            padding-top: 100px; 
+        }
+        .title{
+            font-size: 40px;
+            color: green;
+            margin-bottom: 10px;
+
+        }
+        .bigpic h1+p{
+            font-size: 30px;
+            margin: 20px 0;
+        }
+        .bigpic .smallword{
+            color: green;
+            font-size: 10px;
+            padding: 10px 0px 0px 20px;
+        }
+        .bigpicword button{
+            color: white;
+            font-size: 20px;
+            width: 180px;
+            height: 50px;
+            background-color: green;
+            border: none;
+            border-radius: 30px;
+        }
+        .section1{
+            margin: 50px 0px;
+        }
+        .section1 p,
+        .section2 p{
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px;
+        }
+        .section2 p{
+            text-align: left;
+        }
+        .percent{
+            color: green;
+        }
+        .section1 p{
+            font-size: 30px;
+        }
+        .section1 p:last-child,
+        .section2 .memo{
+            color: gray;
+            font-size: 10px;
+        }
+        .section2 .memo{
+            text-align: left;
+        }
+        .box{
+            margin-left: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .box img{
+            width: 400px;
+        }
+        .word{
+            padding: 100px 0px;
+            text-align: left;
+        }
+        .word p:first-child{
+            color: rgb(39, 163, 39);
+            text-align: left;
+            font-size: 30px;
+        }
+        .section3{
+            width: 100%;
+            height: 400px;
+            color: rgb(88, 85, 85);
+            background-color: whitesmoke;
+            text-align: center;
+        }
+        .advantagepic{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .box2{
+            font-weight: bold;
+            margin-top: 20px;
+            margin-right: 60px;
+        }
+        .section3 h2{
+            font-size: 20px;
+        }
+        .expshare h2,
+        .section3 .title2 h2,
+        .section4 h2{
+            font-size: 30px;
+            padding-top: 40px;
+        }
+        .section3 p{
+            margin-top: 10px;
+        }
+        .expshare{
+            width: 100%;
+            height: 400px;
+            color: rgb(88, 85, 85);
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+            margin-top: 20px;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            
+        }
+        .box3{
+            border: 1px solid rgb(219, 218, 218);
+            background-color: rgb(252, 252, 252);
+            width: 250px;
+            height: 280px;
+            margin: 20px;
+            background-image: url(/Whoscall/picture/asset\ 9.svg),url(/Whoscall/picture/91app.png);
+            background-size: 30px,120px;
+            background-repeat: no-repeat;
+            background-position: 15px 10px,110px 210px;
+            text-align: left;
+        }
+        .box3:first-child{
+            background-image: url(/Whoscall/picture/asset\ 9.svg),url(/Whoscall/picture/tree.png);
+            background-size: 30px,160px;
+            background-position: 15px 10px,70px 220px;
+        }
+        .box3:last-child{
+            background-image: url(/Whoscall/picture/asset\ 9.svg),url(/Whoscall/picture/pc24_1.jpg);
+            background-size: 30px,200px;
+            background-position: 15px 10px,30px 230px;
+        }
+        .box3 h3,
+        .section4 h3{
+            font-size: 20px;
+            margin: 15px;
+        }
+        .box3 p{
+            font-size: 15px;
+            font-weight: bold;
+            margin: 15px;
+            margin-bottom: 0px;
+        }
+        .section4{
+            width: 100%;
+            height: 150px;
+            color: rgb(88, 85, 85);
+            background-color: whitesmoke;
+            text-align: center;
+        }
+        .section4 p{
+            margin: 20px;
+            color: green;
+            font-weight: bold;
+        }
+        .listsection{
+            width: 100%;
+            height: 400px;
+            background-color: rgb(252, 252, 248);
+        }
+        .bottomsection{
+            width: 100%;
+            height: 280px;
+            background-color: rgb(66, 65, 70);
+            
+        }
+        .table{
+            font-size: 10px;
+            width: 400px;
+            margin: 30px 0px 20px 0px;
+        }
+        .table th{
+            font-size: 15px;
+            color: white;
+            width: 200px;
+            text-align: left;
+        }
+        .websitepic img:hover,
+        .websitepic p:hover{
+            cursor: pointer;
+        }
+        .table td:hover,
+        .box6 span:hover{
+            color: antiquewhite;
+            cursor: pointer;
+        }
+        .rights,
+        .table td{
+            font-size: 13px;
+            font-weight: bolder;
+            padding: 10px 0px;
+            color: lightgray;
+        }
+        .box5{
+            width: 900px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid white ;
+        }
+        .websitepic h3{
+            font-size: 15px;
+            color: white;
+            width: 200px;
+            text-align: left;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        .websitepic img{
+            width: 30px;
+            height: 30px;
+            mix-blend-mode: multiply;
+            margin-right: 15px;
+        }
+        .smallpic img+p{
+            color: lightgray;
+            font-size: 10px;
+            margin: 20px 0px 10px 0px;
+        }
+        .rights{
+            margin-left: 30px;
+        }
+        .websitepic .smallpic .gogolook{
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-align: left;
+        }
+        .box6{
+            display: flex;
+            justify-content: space-between;
+        }
+        select{
+            background-color: transparent;
+            border: none;
+            font-size: 13px;
+            margin-top: 10px;
+            margin-right: 50px;
+            color: white;
+        }
+        option{
+            background-color: rgb(66, 65, 70);
+        }
+        mark{
+            white-space: pre-line;
+            border-radius: 5px;
+            background-color: transparent;
+            background: linear-gradient(transparent 40%, rgba(255,255,255,0) 50%, #e6fcf2  75%, #e6fcf2 90%, transparent 95%);
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="outline">
+        <div class="topline">
+            <div class="leftnav">
+                <img src="/Whoscall/picture/asset 6.svg" alt="error">
+                <a href="#">Whoscall 進階版</a>
+                <a href="#">Whoscall 認證號碼</a>
+                <a href="#">認識 Whoscall</a>
+                <a href="#">Whoscall 專欄</a>
+                <a href="#">常見問題</a>
+            </div>
+            <div class="rightnav">
+                <button class="topbutton">免費下載</button>
+            </div>
+        </div>
+        <div class="bigpic">
+            <div class="bigpicword">
+                <h1 class="title">whoscall 認證號碼</h1>
+                <p>電話接通前<br>讓專業形象為你開場！</p>
+                <button class="picbutton">立即申請</button>
+                <p class="smallword">企業方案優惠 $200/月 起</p>
+            </div>
+        </div>
+        <div class="section1">
+            <p>根據市場調查顯示※</p>
+            <p>超過<span class="percent">60%</span>的民眾會選擇忽視或<br>拒接陌生來電。</p>
+            <p>※Pollster 波仕特線上市調 (2014)</p>
+        </div>
+        <div class="section2">
+            <div class="box">
+                <div class="word">
+                    <p>提高2倍電話接聽意願</p>
+                    <p>Whoscall 認證號碼讓您在全台百萬用戶<br>的來電視窗，顯示公司名稱、姓名等資<br>訊。從此不再是客戶的陌生來電！</p>
+                    <p class="memo">※Whoscall 調查 (2018)</p>
+                </div>
+                <div class="pic">
+                    <img src="/Whoscall/picture/asset 0.webp" alt="">
+                </div>
+            </div>
+            <div class="box">
+                <div class="pic">
+                    <img src="/Whoscall/picture/asset 1.webp" alt="">
+                </div>
+                <div class="word">
+                    <p>創造主動回撥的潛在客戶</p>
+                    <p>在來電記錄中，留下最佳企業形象，創<br>造客戶主動聯繫的契機。</p>
+                </div>
+
+            </div>
+            <div class="box">
+                <div class="word">
+                    <p>眾多來電一秒看見</p>
+                    <p>不在客戶的通訊錄裡，也能於通話紀錄<br>顯示企業資訊，輕鬆提升工作效率與拓<br>客成功率。</p>
+                </div>
+                <div class="pic">
+                    <img src="/Whoscall/picture/asset 2.webp" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="section3">
+            <div class="title2">
+                <h2>拓展業務的最佳夥伴！</h2>
+            </div>
+            <div class="advantagepic">
+                <div class="box2">
+                    <img src="/Whoscall/picture/asset 3.svg" width="120px" alt="">
+                    <h2>實名認證</h2>
+                    <p>Whoscall 嚴謹的實名審核，讓<br>認證過的電話號碼更值得信任。</p>
+                </div>
+                <div class="box2">
+                    <img src="/Whoscall/picture/asset 4.svg" width="120px" alt="">
+                    <h2>支援手機雙系統</h2>
+                    <p>支援在 iOS 與 Android 系統上<br>的來電顯示，全台潛在客戶一網<br>打盡。</p>
+                </div>
+                <div class="box2">
+                    <img src="/Whoscall/picture/asset 5.svg" width="120px" alt="">
+                    <h2>一對一專人服務</h2>
+                    <p>專人服務、輕鬆申請<br>認證流程不再複雜惱人</p>   
+                </div>
+            </div>
+        </div>
+        <div class="expshare">
+            <h2>用戶經驗分享</h2>
+            <div class="container">
+                <div class="box3">
+                    <h3><br>沒想到更多客戶主動回<br>電!</h3>
+                    <p>申請 Whoscall 認證號碼後，<mark>業務撥打出去的未接來電，客戶更樂意回電了，</mark>保險方案的介紹與推動也比以前更即時有效！</p>
+                </div>
+                <div class="box3">
+                    <h3><br>高接聽率讓合作更有效<br>率!</h3>
+                    <p>設定 Whoscall 認證號碼後，電商客戶的接聽率明顯比以前高很多！和客戶討論案子的速度更順利、也更能即時給客戶完整的營運建議！</p>
+                </div>
+                <div class="box3">
+                    <h3><br>接聽意願提高，配送更快<br>速!</h3>
+                    <p>透過 Whoscall Number 服務，讓顧客接聽意願變高，也讓我們的物流司機更容易掌握顧客的狀況，網購商品能更即時且有效率的送達。</p>
+                </div>
+            </div>
+        </div>
+        <div class="section4">
+            <h2>馬上申請企業專屬認證號碼！</h2>
+            <p>每筆 $200/月 起，申辦號碼越多、優惠更多！</p>
+        </div>
+
+        <div class="listsection"></div>
+
+        <div class="bottomsection">
+            <div class="box5">
+                <div class="table">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Whoscall</th>
+                                <th>公司</th>
+                                <th>客戶服務</th>
+                            </tr>
+                            <tr>
+                                <td>認識 Whoscall</td>
+                                <td>工作機會</td>
+                                <td>安全性</td>
+                            </tr>
+                            <tr>
+                                <td>Whoscall 進階版</td>
+                                <th>媒體中心</th>
+                                <td>常見問題</td>
+                            </tr>
+                            <tr>
+                                <td>Whoscall 專欄</td>
+                                <td>最新消息</td>
+                                <td>聯絡我們</td>
+                            </tr>
+                            <tr>
+                                <td>Whoscall 認證號碼</td>
+                                <td>品牌識別</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="websitepic">
+                    <h3>追蹤我們</h3>
+                    <div class="smallpic">
+                        <img src="/Whoscall/picture/ig.png" alt="">
+                        <img src="/Whoscall/picture/fb.png" alt="">
+                        <img src="/Whoscall/picture/twitter.png" alt="">
+                        <img src="/Whoscall/picture/yt.png" alt="">
+                        <p>Powered by</p>
+                        <p class="gogolook">Gogolook</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box6">
+                <p class="rights">© 2022 Gogolook. All Rights Reserved.&emsp;&emsp;<span>服務條款</span>&emsp;&emsp;<span>隱私權政策</span></p>
+                <div class="drop">
+                    <select class="dropdown">
+                        <option>English</option>
+                        <option selected="true">中文</option>
+                        <option>日本語</option>
+                        <option>한국어</option>
+                        <option>Português</option>
+                        <option>馬來西亞(中文)</option>
+                        <option>Bahasa Melayu</option>
+                        <option>عربي/عرب</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
