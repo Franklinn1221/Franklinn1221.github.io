@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/8462e12336.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: Microsoft JhengHei;
+            text-decoration: none;
+            scroll-behavior: smooth;
+        }
+        .main-header{
+            width: 100%;
+            top: 0;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            border-bottom: 6px solid darkgray;
+            position: fixed;
+            z-index: 3;
+        }
+        .main-header .main-logo{
+            margin-left: 30px;
+        }
+        .main-header .main-logo img{
+            width: 160px;
+            height: 30px;
+        }
+        .social-media li{
+            display: inline;
+            margin: 0px 15px;
+        }
+        .social-media img{
+            width: 23px;
+            height: 23px;
+        }
+        .link-tgr img{
+            width: 84px;
+            mix-blend-mode: multiply;
+        }
+        .five-advantage{
+            margin-top: 100px;
+        }
+
+        /* ------------------------------------------------ */
+
+        .title-advantage{
+            font-size: 40px;
+            font-weight: 600;
+            color: #333333;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .baseline{
+            width: 38px;
+            height: 4px;
+            background-color: #000;
+            margin-top: 15px;
+        }
+        .nav-advatage{
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+        }
+        .five-advantage li{
+            font-size: 20px;
+            display: inline;
+            margin: 0px 20px;
+            border: 1px dotted #000;
+            border-bottom: 1px solid #ae0014;
+        }
+        .nav-advatage a{
+            color: #000;
+            padding: 0px 25px;
+        }
+        .nav-advatage li:hover{
+            background-color: #ae0014;
+            transition: all 1s linear;
+            
+        }
+        .nav-advatage a:hover{
+            color: #ffffff;
+        }
+
+        /* ------------------------------------------------ */
+
+        .title p{
+            font-size: 150px;
+            color: white;
+            font-weight: lighter;
+            writing-mode: vertical-lr;
+            line-height: 0.8;
+        }
+        .title p:nth-child(odd){
+            margin-right: 10px;
+        }
+        .title p:nth-child(even){
+            margin-left: 10px;
+        }
+        img{
+            width: 650px;
+            height: 400px;
+        }
+        .section-control,
+        .section-safe,
+        .section-comfortable,
+        .section-people,
+        .section-proud{
+            width: 960px;
+            margin: auto;
+            display: flex;
+            position: relative;
+        }
+        .section-control .main-title,
+        .section-comfortable .main-title,
+        .section-proud .main-title{
+            width: 350px;
+            position: absolute;
+            top: 86px;
+            left: 0px;
+            right: 0;
+            bottom: 0;
+        }
+        .main-title h1{
+            font-size: 50px;
+            color: white;
+            font-weight: normal;
+        }
+        .section-comfortable .pic,
+        .section-proud .pic{
+            width: 100%;
+            margin: 253px 0px 270px 240px;
+            display: flex;
+        }
+        .section-control .pic{
+            width: 100%;
+            margin: 228px 0px 270px 240px;
+            display: flex;
+        }
+        .section-control .revolution,
+        .section-comfortable .revolution,
+        .section-proud .revolution{
+            background-color: rgb(236, 234, 234);
+            width: 610px;
+            height: 240px;
+            padding: 10px;
+            position: absolute;
+            top: 602px;
+            left: 60px;
+            right: 0;
+            bottom: 0;
+        }
+        .section-comfortable .revolution{
+            top:625px;
+        }
+        .section-proud .revolution{
+            height: 180px;
+            top:625px;
+        }
+        .section-control .color-box,
+        .section-comfortable .color-box,
+        .section-proud .color-box{
+            width: 400px;
+            height: 250px;
+            background-color: rgb(236, 234, 234);
+            position: absolute;
+            top: 180px;
+            right: 0px;
+            bottom: 0;
+            z-index: -1;
+        }
+        .title{
+            background-color: #ae0014;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .txt{
+            font-size: 20px;
+            background-color: black;
+            color: lightgray;
+            padding: 20px;
+            letter-spacing: 2px;
+            line-height: 30px;
+        }
+        .revolution span{
+            font-size: 22px;
+            font-weight: 900;
+            color: #ae0014;
+            display: flex;
+        }
+        .revolution span:after{
+            content: "";
+            flex: 0.95;
+            border-bottom: 1px solid #ae0014;
+            margin: auto;
+        }
+        .revolution h2{
+            font-size: 18px;
+            width: 110px;
+            background-color: black;
+            color: white;
+            border-radius: 2px;
+            padding: 2px;
+        }
+        .section-safe .revolution h2,
+        .section-proud .revolution h2{
+            font-size: 18px;
+            width: 75px;
+            background-color: black;
+            color: white;
+            border-radius: 2px;
+            padding: 2px;
+        }
+        .revolution p{
+            color: rgb(83, 81, 81);
+            padding: 5px 2px;
+        }
+        .txt p:first-child{
+            color: white;
+            font-size: 25px;
+        }
+        .section-safe .main-title,
+        .section-people .main-title{
+            width: 350px;
+            position: absolute;
+            top: 86px;
+            left: 600px;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+        .section-people .main-title{
+            top: 86px;
+        }
+        .section-safe .pic{
+            width: 960px;
+            margin: 253px 20px 200px;
+            z-index: 0;
+        }
+        .section-people .pic{
+            width: 960px;
+            margin: 255px 20px 200px;
+            z-index: 0;
+        }
+        .section-safe .revolution,
+        .section-people .revolution{
+            background-color: rgb(236, 234, 234);
+            width: 600px;
+            height: 180px;
+            padding: 10px;
+            position: absolute;
+            top: 628px;
+            left: 330px;
+            right: 0;
+            bottom: 0;
+        }
+        .section-people .revolution{
+            height: 200px;
+        }
+        .section-safe .color-box,
+        .section-people .color-box{
+            width: 500px;
+            height: 400px;
+            background-color: rgb(236, 234, 234);
+            position: absolute;
+            top: 180px;
+            right: 200px;
+            bottom: 0;
+            z-index: -1;
+        }
+        .section-safe .revolution p{
+            color: rgb(121, 120, 120);
+        }   
+        .section-control .revolution span+h2,
+        .section-comfortable .revolution h2:nth-child(4){
+            width: 90px;
+        }
+        .section-comfortable .revolution span+h2{
+            width: 130px;
+        }
+        .section-people .revolution h2:last-of-type{
+            width: 150px;
+        }
+        .revolution p::before{
+            content: "" ;
+            display: inline-block;
+            margin-right: 5px;
+            width: 0;
+            height: 0;
+            border: 2px solid #ae0014;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="main-logo">
+            <a href="#"><img src="/Toyota/TOYOTA圖片/Toyotalogo.png" alt=""></a>
+        </div>
+        <div class="social-media">
+            <ul class="links">
+                <li><a href="#" class="link-tgr"><img src="/Toyota/TOYOTA圖片/icon-tgr.png" alt=""></a></li>
+                <li><a href="#" class="link-fb"><img src="/Toyota/TOYOTA圖片/icon-facebook.png" alt=""></a></li>
+                <li><a href="#" class="link-ig"><img src="/Toyota/TOYOTA圖片/icon-instagram.png" alt=""></a></li>
+                <li><a href="#" class="link-yt"><img src="/Toyota/TOYOTA圖片/icon-youtube.png" alt=""></a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="five-advantage">
+        <div class="title-advantage">
+            <p>五大優勢</p>
+            <div class="baseline"></div>
+        </div>
+        <div class="nav-advatage">
+            <ul>
+                <li><a href="#control">操控樂趣</a></li>
+                <li><a href="#safe">安全守護</a></li>
+                <li><a href="#comfortable">乘坐舒適</a></li>
+                <li><a href="#people">以人為本</a></li>
+                <li><a href="#proud">引以為傲</a></li>
+            </ul>
+        </div>
+    </section>
+    <section class="section-control" id="control">
+        <div class="main-title">
+            <div class="title">
+                <p>01</p>
+                <h1>操控樂趣</h1>
+            </div>
+            <div class="txt">
+                <p>人人滿意的駕駛體驗</p>
+                <p>透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩帶給駕駛更靈敏的道路反饋，享受隨心馳騁的行駛快感。</p>
+            </div>
+        </div>
+        <div class="pic">
+            <img src="/Toyota/TOYOTA圖片/toyota1.png" alt="">
+        </div>
+        <div class="revolution">
+            <span>因為我們做了這些革新</span>
+            <h2>低重心設計</h2>
+            <p>透過低重心設計，不僅呈現更低伏的外觀，能減少身側傾，保持高速行駛穩定性。</p>
+            <h2>車體剛性強化</h2>
+            <p>車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化接技術，大幅增加 &ensp;焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</p>
+            <h2>四輪獨立懸吊</h2>
+            <p>搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，同時兼顧轉 &ensp;向靈敏度與清晰路感回饋，提升駕馭樂趣。</p>
+        </div>
+        <div class="color-box"></div>
+    </section>
+    <section class="section-safe" id="safe">
+        <div class="main-title">
+            <div class="title">
+                <h1>安全守護</h1>
+                <p>02</p>
+            </div>
+            <div class="txt">
+                <p>行車更安心的高剛性車體</p>
+                <p>您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞。世界級的安全功能讓您輕鬆自如享受旅程、毫無後顧之憂。</p>
+            </div>
+        </div>
+        <div class="pic">
+            <img src="/Toyota/TOYOTA圖片/toyota2.png" alt="">
+        </div>
+        <div class="revolution">
+            <span>因為我們做了這些革新</span>
+            <h2>主動安全</h2>
+            <p>以先進的TSS 系統，動偵測路況，輔助駕駛判斷路況並維持行車安全。</h2>
+            <h2>被動安全</h2>
+            <p>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼，強化座對意外事故的保力。</p>
+        </div>
+        <div class="color-box"></div>
+    </section>
+    <section class="section-comfortable" id="comfortable">
+        <div class="main-title">
+            <div class="title">
+                <p>03</p>
+                <h1>乘坐舒適</h1>
+            </div>
+            <div class="txt">
+                <p>令人放鬆舒適的車室空間</p>
+                <p>車室空間設計著重人體工學，透過方向盤、踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛不疲勞的舒適駕馭體驗。</p>
+            </div>
+        </div>
+        <div class="pic">
+            <img src="/Toyota/TOYOTA圖片/toyota3.png" alt="">
+        </div>
+        <div class="revolution">
+            <span>因為我們做了這些革新</span>
+            <h2>駕駛位置最佳化</h2>
+            <p>針對駕駛位置進行徹底的修改，讓駕馭者可如同握手般自然且舒適地操控方向盤。</p>
+            <h2>駕馭視野佳</h2>
+            <p>考量駕駛坐進車內的高度，透過前擋風玻璃位的調整，達到盲區極小化，使駕駛視野 &ensp;更開闊，同步提升駕馭安全。</p>
+            <h2>更寧靜的車室</h2>
+            <p>採用最新三層結構的隔音材料，與引擎、變速箱的零件改革，將座艙的震動抑制在最 &ensp;小限度，提供乘客舒適安靜的感受。</p>
+        </div>
+        <div class="color-box"></div>
+    </section>
+    <section class="section-people" id="people">
+        <div class="main-title">
+            <div class="title">
+                <h1>以人為本</h1>
+                <p>04</p>
+            </div>
+            <div class="txt">
+                <p>使用者導向的貼心設計</p>
+                <p>藉由高度人性化的介面整合、遞
+                    車輛資訊豐富日常駕駛體驗。
+                    從提升油耗表現到行李廂空間最適化，均細心考量，更加貼近使用者真正所需與習慣，並給予即時回應。</p>
+            </div>
+        </div>
+        <div class="pic">
+            <img src="/Toyota/TOYOTA圖片/toyota4.png" alt="">
+        </div>
+        <div class="revolution">
+            <span>因為我們做了這些革新</span>
+            <h2>優異油耗表現</h2>
+            <p>以AURIS為例更強勁的高效引擎將熱效率提升40%，達到世界級水準，屢屢突破燃 &ensp;油效率新境界。</h2>
+            <h2>行李箱空間最適化</h2>
+            <p>以PRIUS為例，透過將電池位置移到後座下方，讓行李廂擁有更大的空間。</p>
+        </div>
+        <div class="color-box"></div>
+    </section>
+    <section class="section-proud" id="proud">
+        <div class="main-title">
+            <div class="title">
+                <p>05</p>
+                <h1>引以為傲</h1>
+            </div>
+            <div class="txt">
+                <p>極具吸引力的精心設計</p>
+                <p>TNGA 車款擁有讓人忍不住回頭的新潮外觀、讓駕駛充滿自信的駕馭快感!不僅讓車主能展現個人風格，也能讓擁有者都能引以為傲。</p>
+            </div>
+        </div>
+        <div class="pic">
+            <img src="/Toyota/TOYOTA圖片/toyota5.png" alt="">
+        </div>
+        <div class="revolution">
+            <span>因為我們做了這些革新</span>
+            <h2>設計概念</h2>
+            <p>TNGA 低重心設計，不僅呈現更低伏的運動化外觀，更講高品質內裝的一致性。</p>
+            <h2>環保概念</h2>
+            <p>為了對環境保護盡一份心力，我們全面提升傳統引擎、變速箱與油電複合動力的動力 &ensp;效能。</p>
+        </div>
+        <div class="color-box"></div>
+    </section>
+</body>
+</html>
