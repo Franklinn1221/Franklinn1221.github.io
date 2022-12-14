@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .card{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 10px;
+            background-color: #80808030;
+            border: 1px solid rgb(184, 183, 183);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .card .pic{
+            width: 50%;
+            display: flex;
+            align-items: center;
+        }
+        .card img{
+            width: 100%;
+            vertical-align: top;
+        }
+        .card .txt{
+            width: 50%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        @media screen and (min-width:768px) {
+            .wrap{
+                display: flex;
+                flex-wrap: wrap;
+                max-width: 1200px;
+                margin: auto;
+                --col-count: 3;
+            }
+            .card{
+                width: calc(100% / var(--col-count ) - 20px);
+            }
+            .card .pic{
+                width: 100%;
+            }
+            .card .txt{
+                width: 100%;
+            }
+        }
+        @media screen and (min-width:1024px) {
+            .card{
+                display: block;
+                flex-wrap: nowrap;
+            }
+        }
+        @media screen and (min-width:1200px) {
+            .wrap{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .card{
+                --col-count: 4;
+            }
+            .card:nth-child(-n+2){
+                --col-count: 2;
+            }
+            .card:nth-child(n+3){
+                padding: 0;
+                position: relative;
+            }
+            .card:nth-child(n+3) .txt{
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                background-color: #0008;
+                color: #fff;
+                padding: 10px;
+                box-sizing: border-box;
+                opacity: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .card:nth-child(n+3):hover .txt{
+                opacity: 1;
+                transition: 1s;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="card">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=10">
+            </div>
+            <div class="txt">
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit voluptatum quae ex eum. Harum.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=11">
+            </div>
+            <div class="txt">
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit voluptatum quae ex eum. Harum.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=12">
+            </div>
+            <div class="txt">
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit voluptatum quae ex eum. Harum.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=13">
+            </div>
+            <div class="txt">
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit voluptatum quae ex eum. Harum.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=14">
+            </div>
+            <div class="txt">
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit voluptatum quae ex eum. Harum.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pic">
+                <img src="https://picsum.photos/300/200/?random=15">
+            </div>
+            <div class="txt">
+                <h3>Lorem, ipsum dolor.</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis impedit voluptatum quae ex eum. Harum.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
