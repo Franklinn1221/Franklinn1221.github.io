@@ -60,26 +60,66 @@
             justify-content: space-between;
             align-items: center;
         }
+
         /* --------------------width < 768px--------------------- */
         @media screen and (width < 768px) {
             .main-header{
                 padding: 10px;
             }
+            /* -------------------------------------------------- */
             .HB{
                 width: 40px;
                 height: 40px;
                 background-color: rgb(231, 231, 231);
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-                align-items: center;
+                display: block;
                 margin-right: 5px;
+                cursor: pointer;
+                position: relative;
             }
-            .HB span{
+            /* .HB span{
                 width: 60%;
                 height: 2px;
                 background-color: rgb(65, 65, 65);
+            } */
+            .line,
+            .line::before,
+            .line::after{
+                background: #222;
+                content: '';
+                display: block;
+                height: 1px;
+                position: absolute;
+                transition: top ease .3s .3s, transform ease .3s;
+                width: 20px;
             }
+            .line{
+                left: 10px;
+                top: 20px;
+            }
+            .line::before{
+                top: -10px;
+            }
+            .line::after{
+                top: 10px;
+            }
+            /*
+            點選選單變叉叉
+            */
+            #menu-control:checked ~ .main-header .line {
+                background-color: transparent;
+            }
+            #menu-control:checked ~ .main-header .line::before {
+                transform: rotate(45deg);
+            }
+            #menu-control:checked ~ .main-header .line::after {
+                transform: rotate(-45deg);
+            }
+            #menu-control:checked ~ .main-header .line::before,
+            #menu-control:checked ~ .main-header .line::after {
+                top: 0;
+                transition: top ease .3s, transform ease .3s .3s;
+            }
+            /* ---------------------------------------------------- */
             .main-nav{
                 position: absolute;
                 background-color: #d5d4ee;
@@ -107,8 +147,12 @@
                 background-color: rgb(180, 180, 180);
             }
         }
+
         /* --------------------width > 768px--------------------- */
         @media screen and (width >= 768px) {
+            .main-logo{
+                margin-left: 10px;
+            }
             .triangle{
                 width: 5px;
                 height: 5px;
@@ -155,9 +199,7 @@
             <img src="https://picsum.photos/100/40/?random=10">
         </div>
         <label for="menu-control" class="HB">
-            <span></span>
-            <span></span>
-            <span></span>
+            <div class="line"></div>
         </label>
         <div class="main-nav">
             <ul class="main-menu">
