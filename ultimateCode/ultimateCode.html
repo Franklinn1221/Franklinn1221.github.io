@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+        }
+        .outline{
+            width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-image: url(../images/bgc.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        .main-title,
+        .main-showNum{
+            display: flex;
+            height: 100px;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+        /* img{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: none;
+        } */
+        .header-numberRange{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .header-input{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #inputNum{
+            width: 50%;
+            font-size: 30px;
+            padding: 10px;
+            text-align: right;
+            background-color: transparent;
+            border: 3px solid #666666;
+        }
+        .section-msg{
+            text-align: center;
+            height: 50px;
+            font-size: 40px;
+            color: red;
+        }
+        .section-btn{
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+        }
+        .calc-btn{
+            width: 50px;
+            height: 50px;
+            margin: 20px;
+            border-radius: 100px;
+            background-color: #99999950;
+            font-size: 30px;
+        }
+        .section-btnFunc{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-left: 30px;
+        }
+        .func-btn{
+            font-size: 30px;
+            margin: 25px;
+            background-color: #99999980;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="outline">
+        <!-- <img class="bombImg" src="../images/bomb.jfif" alt=""> -->
+        <div class="main-title">
+            <i class="fa-solid fa-bomb"></i>
+            <h1>終極密碼</h1>
+            <i class="fa-solid fa-bomb"></i>
+        </div>
+        <div class="main-showNum">
+            <div class="header-numberRange">
+                <p>
+                    範圍:
+                    <span class="min"></span>
+                    <span>~</span>
+                    <span class="max"></span>
+                </p>
+            </div>
+
+            <div class="header-input">
+                <input type="text" placeholder="請輸入數字" id="inputNum" disabled>
+            </div>   
+        </div>
+
+        <div class="section-msg">
+            <p id="msg"></p>
+        </div>
+
+        <div class="section-btn">
+            <div class="section-btnFunc">
+                <button class="func-btn button-startGame">Play</button>
+                <button class="func-btn button-guessNumber">Guess</button>
+                <button class="func-btn button-renew" type="reset">ReStart</button>
+                <!-- <button class="func-btn button-answer">Answer</button> -->
+            </div>
+    
+            <div class="section-btnNum">
+                <div class="row">
+                    <button class="calc-btn">1</button>
+                    <button class="calc-btn">2</button>
+                    <button class="calc-btn">3</button>
+                </div>
+                <div class="row">
+                    <button class="calc-btn">4</button>
+                    <button class="calc-btn">5</button>
+                    <button class="calc-btn">6</button>
+                </div>
+                <div class="row">
+                    <button class="calc-btn">7</button>
+                    <button class="calc-btn">8</button>
+                    <button class="calc-btn">9</button>
+                </div>
+                <div class="row">
+                    <button class="calc-btn">0</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+
+        // 宣告變數
+        var min = 0;
+        var max = 100;
+        var ans;
+        var msg;
+
+        // 起始範圍設定
+        document.querySelector('.max').innerHTML = max;
+        document.querySelector('.min').innerHTML = min;
+
+        // 數字鍵
+        var ipt = document.getElementById('inputNum')
+        var btnNumber = document.querySelectorAll('.calc-btn')
+        btnNumber.forEach(element => {
+            element.addEventListener('click', function(){
+                ipt.value += element.innerHTML
+            })
+        })
+
+        // 開始鍵及產生1-100亂數
+        var btnStart = document.querySelector('.button-startGame')
+        btnStart.addEventListener('click', function (){
+            ans = Math.floor(Math.random() * 99 + 1 )
+            btnStart.disabled = true;
+            btnGuess.disabled = false;
+            btnRenew.disabled = false;
+            btnAnswer.disabled = false;
+        })
+        
+        // 看答案鍵
+        // var btnAnswer = document.querySelector('.button-answer')
+        // btnAnswer.addEventListener('click', function(){
+        //     if(ans == undefined){
+        //         alert('尚未按下開始遊戲')
+        //     }
+        //     else{
+        //         alert(`答案是${ans}~`)
+        //     }
+        // })
+
+        // 猜數字鍵
+        var btnGuess = document.querySelector('.button-guessNumber')
+        btnGuess.addEventListener('click',function () {
+
+            var input = ipt.value;
+            var inputInt = parseInt(input, 10);
+            // if(ans == undefined){
+            //     msg = '請按下開始遊戲';
+            // }
+            // else if(input != input.replace(/^[^\d]+/g,'')){
+            //     msg = "錯誤格式!請輸入整數數字";
+            // }
+            if(input == ""){
+                msg = "輸入值是空白";
+            }
+            else if (isNaN(inputInt)){
+                msg = "Error!請輸入整數數字";
+            }
+            else if(inputInt <= 0 || inputInt >= 100){
+                msg = '請輸入範圍內數字';
+            }
+            else if(inputInt <= min || inputInt >= max){
+                msg = '請輸入範圍內數字';
+            }
+            else if(ans > inputInt && inputInt < max ){
+                msg = '';
+                min = inputInt;
+            }
+            else if(ans < inputInt && inputInt > min ){
+                msg = '';
+                max = inputInt;
+            }
+            else if (ans == inputInt){
+                msg = 'Bomb! 密碼是'+ ans +'!遊戲結束!';
+            }
+
+            document.getElementById('msg').innerHTML = msg;
+            document.querySelector('.max').innerHTML = max;
+            document.querySelector('.min').innerHTML = min;
+
+            ipt.value = '';
+        })
+        
+        // 重新開始鍵
+        var btnRenew = document.querySelector('.button-renew')
+        btnRenew.addEventListener('click', function(){
+            ipt.value = '';
+            ans = undefined
+            min = 0;
+            max = 100;
+            msg = '';
+
+            document.getElementById('msg').innerHTML = msg;
+            document.querySelector('.max').innerHTML = max;
+            document.querySelector('.min').innerHTML = min;
+            btnStart.disabled = false;
+            btnGuess.disabled = true;
+            btnRenew.disabled = true;
+            btnAnswer.disabled = true;
+        })
+
+        // var img = querySelector('.bombImg')
+        // function showImg(){
+        //     if(ans == inputInt){
+        //         img.style.display = "block"; 
+        //     }
+        // }
+
+        btnGuess.disabled = true;
+        btnRenew.disabled = true;
+        btnAnswer.disabled = true;
+
+    </script>
+
+</body>
+</html>
