@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .main-header,
+        .title-brand,
+        .title-manShoes,
+        .title-wmnShoes,
+        .nonselector{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #c3cfdb;
+            position: relative;
+        }
+        .main-logo img{
+            vertical-align: top;
+        }
+        input{
+            display: none;
+        }
+        .main-nav a{
+            padding: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+        .main-nav a:hover{
+            background-color: rgb(226, 226, 226);
+        }
+        .nav-brand,
+        .nav-manShoes,
+        .nav-wmnShoes{
+            display: none;
+            background-color: #d5d4ee;
+        }
+        @media screen and (width < 768px) {
+            .main-header{
+                padding: 10px;
+            }
+            .HB{
+                width: 40px;
+                height: 40px;
+                background-color: rgb(231, 231, 231);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+            }
+            .HB span{
+                width: 60%;
+                height: 2px;
+                background-color: rgb(65, 65, 65);
+            }
+            .main-nav{
+                position: absolute;
+                background-color: #d5d4ee;
+                top: 100%;
+                left: 100%;
+                right: 0;
+                opacity: 0;
+            }
+            .triangle{
+                background-color: transparent;
+                width: 10px;
+                height: 10px;
+                border:#333 solid;
+                border-width: 1px 1px 0 0;
+                transform: rotate(135deg);
+                margin-right: 30px;
+            }
+            #menu-control:checked ~ .main-header .main-nav{
+                left: 0;
+                opacity: 1;
+                transition: 1s;
+            }
+            #brand-control:checked ~ .main-header .nav-brand,
+            #manShoes-control:checked ~ .main-header .nav-manShoes,
+            #wmnShoes-control:checked ~ .main-header .nav-wmnShoes{
+                display: block;
+            }
+            .main-nav a{
+                display: block;
+            }
+            .main-nav a:hover{
+                background-color: transparent;
+            }
+            .main-nav a + a{
+                border-top: 1px solid #333;
+            }
+        }
+        @media screen and (width >= 768px) {
+            .HB{
+                display: none;
+            }
+            .main-nav{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .brand a:hover .nav-brand,
+            .manShoes a:hover .nav-manShoes,
+            .wmnShoes a:hover .nav-wmnShoes{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" name="" id="menu-control">
+    <input type="checkbox" name="" id="brand-control">
+    <input type="checkbox" name="" id="manShoes-control">
+    <input type="checkbox" name="" id="wmnShoes-control">
+    <div class="main-header">
+        <div class="main-logo">
+            <a href="#"><img src="https://picsum.photos/100/40/?random=10"></a>
+        </div>
+        <label for="menu-control" class="HB">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="main-nav">
+            <div class="brand">
+                <div class="title-brand">
+                    <a href="#">所有品牌</a>
+                    <label for="brand-control" class="triangle"></label>
+                </div>
+                <div class="nav-brand">
+                    <a href="#">Nike</a>
+                    <a href="#">Adidas</a>
+                    <a href="#">New Balance</a>
+                    <a href="#">Asics</a>
+                    <a href="#">Puma</a>
+                    <a href="#">Converse</a>
+                </div>
+            </div>
+            <div class="manShoes">
+                <div class="title-manShoes">
+                    <a href="#">男款</a>
+                    <label for="manShoes-control" class="triangle"></label>
+                </div>
+                <div class="nav-manShoes">
+                    <a href="#">NIKE-MEN's</a>
+                    <a href="#">1960</a>
+                </div>
+            </div>
+            <div class="wmnShoes">
+                <div class="title-wmnShoes">
+                    <a href="#">女款</a>
+                    <label for="wmnShoes-control" class="triangle"></label>
+                </div>
+                <div class="nav-wmnShoes">
+                    <a href="#">NIKE-WOMEN's</a>
+                    <a href="#">550</a>
+                </div>
+            </div>
+            <div class="zeroSize nonselector">
+                <a href="#">零碼專區</a>
+            </div>
+            <div class="assesories nonselector">
+                <a href="#">療癒小物</a>
+            </div>
+            <div class="buyToKnow nonselector">
+                <a href="#">購買須知</a>
+            </div>
+    </div>
+</body>
+</html>

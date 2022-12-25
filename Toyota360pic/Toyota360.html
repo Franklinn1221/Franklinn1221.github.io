@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        h1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+        .section-main{
+            width: 960px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+        img{
+            width: 100%;
+        }
+        .btn-backward,
+        .btn-forward{
+            width: 80px;
+            height: 80px;
+            border-radius: 50px;
+            border: none;
+            background-color: #00000060;
+            color: #fff;
+            font-size: 30px;
+        }
+        .section-colorBtn{
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        .btn-color{
+            width: 50px;
+            height: 50px;
+            border-radius: 40px;
+            border: none;
+            color: #fff;
+            margin: 10px 20px;
+            box-shadow: 0px 0px 10px 3px darkgray;
+        }
+        .btn-color:focus{
+            border: 3px solid #ffffff;
+        }
+        .btn-color:hover{
+            cursor: pointer;
+        }
+        .gray{
+            background-image: url(../images/toyota360_graybtn.jpg);
+        }
+        .red{
+            background-image: url(../images/toyota360_redbtn.jpg);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>360 賞車</h1>
+    <div class="section-main">
+        <div class="btn-changeImg">
+            <button class="btn-backward"><i class="fa-solid fa-rotate-left"></i></button>
+        </div>
+        <div class="main-pic">
+            <img src="./AltisImg/Gray/Gray/10001.png" alt="">
+        </div>
+        <div class="btn-changeImg">
+            <button class="btn-forward"><i class="fa-solid fa-rotate-right"></i></button>
+        </div>
+    </div>
+
+    <div class="section-colorBtn">
+        <button class="btn-color gray"></button>
+        <button class="btn-color red"></button>
+    </div>
+
+    <script>
+        const img = document.querySelector('img')
+        const grayBtn = document.querySelector('.gray')
+        const redBtn = document.querySelector('.red')
+        const nextBtn = document.querySelector('.btn-forward')
+        const lastBtn = document.querySelector('.btn-backward')
+        let carArrayGray = [];
+        let carArrayRed = [];
+        let count = 0;
+        let color = "Gray";
+
+        function genCarArrayGray(){
+            for(let i = 1; i <= 53; i++){
+                let urlGray = `./AltisImg/Gray/Gray/${10000+i}.png`;
+                carArrayGray.push(urlGray);
+            }
+        } 
+
+        function genCarArrayRed(){
+            for(let i = 1; i <= 51; i++){
+                let urlRed = `./AltisImg/Red/Red/${10000+i}.png`;
+                carArrayRed.push(urlRed);
+            }
+        }
+
+        grayBtn.addEventListener('click',function(){
+
+            color = "Gray";
+
+            img.src = `./AltisImg/${color}/${color}/${10001+count}.png`;
+        })
+
+        redBtn.addEventListener('click',function(){
+
+            color = "Red";
+
+            if(count > 50  && color == "Red"){
+                count = 0;
+            }
+            
+            img.src = `./AltisImg/${color}/${color}/${10001+count}.png`;
+        })
+
+        lastBtn.addEventListener('click',function(){
+
+            count--;
+
+            if(count == -1 && color == "Red"){
+                count = 50;
+            }
+            else if(count ==  -1 && color == "Gray" ){
+                count = 52;
+            }
+
+            img.src = `./AltisImg/${color}/${color}/${10001+count}.png`;
+
+        })
+
+        nextBtn.addEventListener('click',function(){
+
+            if(count > 49  && color == "Red"){
+                count = 0;
+            }
+            else if(count > 51){
+                count = 0;
+            }
+            else{
+                count++;
+            }
+
+            img.src = `./AltisImg/${color}/${color}/${10001+count}.png`;
+        })
+
+    </script>
+</body>
+</html>
