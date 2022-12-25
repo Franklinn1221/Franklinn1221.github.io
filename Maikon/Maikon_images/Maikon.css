@@ -1,0 +1,713 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: Roboto,sans-serif;
+    font-weight: 100;
+}
+/* ------------------------按鈕-------------------------  */
+.link{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.btn-green{
+    background-color: #1fde82;
+    color: #fff;
+    font-size: 15px;
+    margin-right: 40px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px #888;
+}
+.btn-green:hover{
+    background-color: #7A7A7A;
+    transition: 0.5s;
+}
+.link label:hover{
+    cursor: pointer;
+}
+.btn-white{
+    color: gray;
+    padding: 15px 25px;
+    border: 1px solid #88888850;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.btn-white:hover{
+    background-color: #1fde82;
+    color: #fff;
+    transition: .5s;
+}
+/* ------------------------------------------------- */
+html {
+    scroll-behavior: smooth;
+}
+img{
+    vertical-align: middle;
+}
+#menu-control,
+#video-play,
+#contact-us{
+    display: none;
+}
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+}
+/* -------------------creative--------------------- */
+.section-creative .pic img{
+    width: 100%;
+}
+.section-creative .container .row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-creative .container .row:nth-child(even){
+    flex-direction: column-reverse;
+}
+.section-creative .txt .mute{
+    color: #888;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+/* ---------------------services----------------------- */
+.section-services{
+    max-width: 1200px;
+    display: block;
+    margin: 80px auto;
+}
+.section-services .title{
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+.section-services .row .col{
+    border: 1px solid #88888810;
+    box-shadow: 0px 0px 15px #88888850;
+    margin-bottom: 30px;
+}
+.section-services .row .col .pic{
+    margin: 20px;
+}
+.section-services .row .col img{
+    border-radius: 100%;
+    box-shadow: 0px 0px 10px #999;
+}
+.section-services .row .col .txt{
+    margin: 20px;
+}
+.section-services .row .col .txt h3,
+.section-services .row .col .txt p{
+    color: #555;
+    margin: 40px 0px;
+}
+.section-services a:hover{
+    color: #1fde82;
+    transition: 0.5s;
+}
+.link-readMore{
+    color: #555;
+    font-size: 13px;
+}
+i{
+    margin-left: 10px;
+}
+/* -------------------qeustions------------------------- */
+.section-qeustions .container .row{
+    display: flex;
+    justify-content: center;
+}
+.section-qeustions .txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.section-qeustions .txt .mute{
+    color: #888;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+.section-qeustions h2{
+    font-size: 40px;
+}
+/* --------------------data------------------------ */
+.section-data{
+    background-color: #2570ff;
+    color: #fff;
+    margin: 40px 0px;
+    padding: 80px 0px;
+}
+.section-data .container .row .col-12{
+    align-items: center;
+}
+.section-data .col-12  p:first-child{
+    font-size: 50px;
+    padding: 20px 0px;
+}
+.section-data .txt  p:first-child{
+    font-size: 40px;
+    margin: 20px 50px;
+    margin-bottom: 20px;
+}
+.section-data .col-12 p+p{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.section-data .number .col-12:last-child p+p{
+    font-size: 18px;
+}
+.section-data .txt p+p{
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    padding: 20px 0px;
+}
+.section-data .btn-white{
+    border: 1px solid #fff;
+    color: #fff;
+    margin-left: 50px;
+}
+.section-data .col-data{
+    background-color: #ffffff10;
+    border: 1px solid #ffffff30;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.section-stepWork .number img{
+    border-radius: 100%;
+    box-shadow: 0px 0px 10px #999;
+    margin: 15px 0px;
+}
+/* --------------------------projects----------------------------- */
+.section-projects{
+    background-color: #99999920;
+    padding: 80px 0px;
+}
+.section-projects h2{
+    width: 75%;
+    font-size: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.section-projects .btn{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.section-projects .pic{
+    position: relative;
+    border-radius: 10px;
+}
+.section-projects .pic img{
+    width: 100%;
+    border-radius: 10px;
+}
+.section-projects .projects-txt{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0px 15px;
+    background-color: #1fde82;
+    color: #fff;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 10px;
+    opacity: 0;
+    z-index: 0;
+}
+.section-projects .projects-txt:hover{
+    opacity: 1;
+    transition: 1s;
+    cursor: pointer;
+}
+.section-projects .projects-txt p{
+    margin-left: 30px;
+}
+.section-projects .projects-txt p+p{
+    font-size: 20px;
+}
+/* stepwsork */
+.section-stepWork h2{
+    margin-left: 50px;
+}
+/* --------------------signup------------------------ */
+.section-signup .pic img{
+    width: 100%;
+}
+.section-signup .container .row{
+    margin: 80px 50px;
+}
+.section-signup .keyInList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 40px;
+    border: 1px solid #88888840;
+    border-radius: 5px;
+    margin: 0px 50px;
+}
+.section-signup .keyInList h2{
+    margin: 40px;
+}
+.section-signup .keyInList input{
+    width: 100%;
+    height: 30px;
+    border: 1px solid #88888850;
+    border-radius: 5px;
+    outline: none;
+}
+.section-signup .keyInList textarea{
+    width: 100%;
+    border: 1px solid #88888850;
+    border-radius: 5px;
+    margin: 20px 0px;
+    outline: none;
+}
+.section-signup .keyInList .btn-green {
+    width: 30%;
+    padding: 5px;
+    font-size: 15px;
+}
+/* ---------------------section-emailsubmit------------------------- */
+.section-emailsubmit{
+    background-color: #99999920;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 0px;
+}
+.section-emailsubmit p{
+    width: 35%;
+    font-size: 40px;
+    color: #555;
+}
+.section-emailsubmit form{
+    width: 500px;
+    display: flex;
+    margin-top: 20px;
+}
+.section-emailsubmit #sub{
+    width: 80%;
+    height: 30px;
+    margin-left: 30px;
+    border: 1px solid #88888850;
+    border-radius: 5px;
+    outline: none;
+}
+.section-emailsubmit .btn-green{
+    width: 20%;
+    height: 30px;
+    border: 1px solid #88888850;
+    font-size: 10px;
+    padding: 0;
+    margin-left: 10px;
+}
+/* --------------------------------------------------------- */
+.section-footer .container{
+    margin: 50px auto;
+    color: #222;
+}
+.section-footer .link-contact a{
+    padding: 0px 0px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.section-footer ul p{
+    margin: 20px 0px 30px;
+    font-size: 20px;
+}
+.section-footer .main-logo{
+    margin-bottom: 20px;
+}
+.section-footer li{
+    margin: 10px 0px;
+}
+.section-footer span{
+    color: #1fde82;
+}
+.section-footer a{
+    color: #666;
+    font-size: 15px;
+}
+.section-footer a:hover{
+    color: #1fde82;
+}
+.section-footer .socialMedia p+p{
+    font-size: 15px;
+    color: #666;
+}
+.section-footer .icon-socialMedia a{
+    margin-right: 10px;
+}
+.section-footer .icon-socialMedia i{
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    margin-left: 0;
+    font-size: 20px;
+    border: 1px solid #888;
+    border-radius: 50px;
+    text-align: center;
+}
+.section-footer .icon-socialMedia a:hover{
+    color: transparent;
+}
+.section-footer .icon-socialMedia i:hover{
+    background-color: #1fde82;
+    color: #fff;
+}
+/* -----------------------copyright-------------------------------- */
+.section-copyright{
+    margin-bottom: 10px;
+}
+.section-copyright p{
+    font-size: 10px;
+    color: #55555580;
+}
+.section-copyright span{
+    color: #1fde82;
+}
+.section-copyright .policy{
+    display: flex;
+    justify-content: flex-end;
+}
+.section-copyright .policy a{
+    color: #55555580;
+    font-size: 10px;
+    margin: 0 10px;
+}
+.section-copyright .policy a:hover{
+    color: #1fde82;
+}
+/* -----------------width < 768px--------------------------- */
+@media screen and (width < 768px) {
+    .section-header{
+        position: relative;
+        width: 100%;
+    }
+    .section-creative{
+        margin-top: 50px;
+    }
+    .section-creative .pic img{
+        margin: 20px 0px;
+    }
+    .section-creative .mute{
+        margin: 20px 0px;
+    }
+    h2{
+        font-size: 30px;
+    }
+    /* -----------Selector開關----------------- */
+    .HB{
+        width: 40px;
+        height: 40px;
+        background-color: #1fde82;
+        display: block;
+        margin-right: 5px;
+        cursor: pointer;
+        position: relative;
+    }
+    .line,
+    .line::before,
+    .line::after{
+        background: #fff;
+        content: '';
+        display: block;
+        height: 2px;
+        position: absolute;
+        width: 20px;
+    }
+    .line{
+        left: 10px;
+        top: 20px;
+    }
+    .line::before{
+        top: -10px;
+    }
+    .line::after{
+        top: 10px;
+    }
+    .XHB{
+        background-color: transparent;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 15px;
+        cursor: pointer;
+        font-size: 25px;
+    }
+    .main-nav ul{
+        display: block;
+        width: 100%;
+    }
+    .main-nav li{
+        margin-bottom: 20px;
+    }
+    .main-nav li a{
+        padding-left: 50px;
+        padding-right: 150px;
+        color: #555;
+    }
+    .main-nav li:hover {
+        border-bottom: 1px solid #000;
+    }
+    .main-nav li a:hover{
+        text-decoration: none;
+    }
+    .main-nav .subscribe{
+        display: none;
+    }
+    .main-nav{
+        display: block;
+        position: fixed;
+        height: 100%;
+        padding: 0;
+        padding-top: 20px;
+        background-color: #fff;
+        left: 100%;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        z-index: 3;
+    }
+    #menu-control:checked ~ .section-header .main-header .main-nav{
+        left: 30%;
+        opacity: 1;
+        transition: 0.5s;
+    }
+    /* --------------------------------------------------------------- */
+    .section-services{
+        margin: 40px auto;
+    }
+    /* --------------------------------------------------------------- */
+    .section-qeustions h2{
+        font-size: 30px;
+    }
+    /* --------------------------------------------------------------- */
+    .section-data .col-data{
+        text-align: center;
+        margin-bottom: 0px;
+    }
+    .section-data .txt  p:first-child{
+        margin: 20px 30px;
+    }
+    .section-data .txt p+p{
+        margin-left: 30px;
+    }
+    .section-data .btn-white{
+        margin-left: 30px;
+    }
+    .section-data .container .row{
+        padding: 0;
+        padding-left: 15px;
+    }
+    .section-data .container .row .txt{
+        padding: 0px 10px 20px;
+    }
+    /* --------------------------------------------------------------- */
+    .section-stepWork h2{
+        margin-left: 15px;
+    }
+    .section-stepWork .container .row .txt p:first-child{
+        font-size: 25px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    .section-stepWork .container .row .txt p+p{
+        font-size: 15px;
+        color: #888;
+        line-height: 1.5;
+        margin-bottom: 50px;
+    }
+    /* --------------------------------------------------------------- */
+    .section-projects .btn{
+        justify-content: flex-start;
+        margin-bottom: 15px;
+    }
+    /* --------------------------------------------------------------- */
+    .section-signup .container .row{
+        margin: 0;
+    }
+    .section-signup .keyInList{
+        margin: 20px 0;
+    }
+    .section-signup .keyInList textarea{
+        resize: vertical;
+        width: 100%;
+    }
+    /* --------------------------------------------------------------- */
+    .section-emailsubmit p{
+        width: 75%;
+        font-size: 30px;
+        color: #555;
+    }
+    .section-emailsubmit form{
+        width: 100%;
+        display: flex;
+        margin-top: 20px;
+    }
+    .section-emailsubmit #sub{
+        width: 80%;
+        height: 40px;
+        border: 1px solid #88888850;
+        border-radius: 5px;
+        outline: none;
+    }
+    .section-emailsubmit .btn-green{
+        width: 30%;
+        height: 40px;
+        border: 1px solid #88888850;
+        font-size: 10px;
+        padding: 0;
+        margin-left: 10px;
+    }
+    /* --------------------------------------------------------------- */
+    .section-copyright p{
+        text-align: center;
+    }
+    .section-copyright .policy{
+        justify-content: center;
+    }
+    /* --------------------------------------------------------------- */
+}
+
+
+@media screen and (width >= 768px) {
+    .wrap{
+        /* width: 1200px; */
+        margin: auto;
+    }
+   
+    /* -----頂端導覽列----- */
+    .section-header{
+        background-color: #fff;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+    .main-header {
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+        padding: 20px;
+    }
+    .main-nav {
+        display: flex;
+        padding: 20px;
+    }
+    .main-nav ul {
+        display: flex;
+    }
+    .main-nav li a {
+        color: gray;
+        margin: 20px;
+        font-size: 18px;
+    }
+    .main-nav li a:hover {
+        text-decoration: underline gray;
+        text-underline-offset: 10px;
+    }
+    .subscribe {
+        margin-left: 50px;
+    }
+    .XHB,
+    .HB{
+        display: none;
+    }
+    /* ---------------大圖&主標題------------------ */
+    .section-creative{
+        margin-top: 120px;
+    }
+    .section-creative .container .row:nth-child(even){
+        flex-direction: row-reverse;
+    }
+    .section-creative .txt .main-title{
+        width: 75%;
+        font-size: 50px;
+    }
+    .section-creative h2{
+        font-size: 40px;
+    }
+    /* -------------------services------------------------- */
+    .section-services{
+        margin: 80px auto 80px;
+    }
+    .section-services .title{
+        width: 40%;
+    }
+    /* -------------------qeustions------------------------- */
+    .section-qeustions{
+        margin-top: 80px;
+    }
+    /* -------------------data------------------------- */
+    .section-data .container .row .txt{
+        padding: 0px 20px 15px;
+    }
+    /* ------------------stepWork-------------------------- */
+    .section-stepWork{
+        margin: auto;
+    }
+    .section-stepWork h2{
+        font-size: 40px;
+        margin-bottom: 50px;
+    }
+    .section-stepWork .container {
+        display: flex;
+    }
+    .section-stepWork .container .row{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .section-stepWork .container:nth-child(odd) .pic {
+        display: flex;
+        justify-content: flex-start;
+        order: 1;
+        margin: 20px 0px;
+    }
+    .section-stepWork .container:nth-child(odd) .number {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .section-stepWork .container:nth-child(even) .pic {
+        order: -1;
+        display: flex;
+        justify-content: flex-end;
+        margin: 20px 0px;
+    }
+    .section-stepWork .container:nth-child(even) .number {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .section-stepWork .container .row .txt p:first-child{
+        font-size: 25px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    .section-stepWork .container .row .txt p+p{
+        font-size: 15px;
+        color: #888;
+    }
+    textarea {
+        resize: vertical;
+    }
+}
