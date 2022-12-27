@@ -545,7 +545,8 @@ i{
         margin: 0;
     }
     .section-signup .keyInList{
-        margin: 20px 0;
+        width: 80%;
+        margin: 20px auto;
     }
     .section-signup .keyInList textarea{
         resize: vertical;
