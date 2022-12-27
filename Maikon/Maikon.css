@@ -12,6 +12,9 @@
     align-items: center;
     margin-bottom: 20px;
 }
+.link label:hover{
+    cursor: pointer;
+}
 .btn-green{
     background-color: #1fde82;
     color: #fff;
@@ -24,9 +27,6 @@
 .btn-green:hover{
     background-color: #7A7A7A;
     transition: 0.5s;
-}
-.link label:hover{
-    cursor: pointer;
 }
 .btn-white{
     color: gray;
@@ -58,11 +58,10 @@ img{
     align-items: center;
     margin: auto;
     padding: 20px;
-    position: relative;
 }
 /* -------------------creative--------------------- */
 .section-creative .pic img{
-    width: 100%;
+    max-width: 100%;
 }
 .section-creative .container .row{
     display: flex;
@@ -87,6 +86,9 @@ img{
 .section-services .title{
     font-size: 30px;
     margin-bottom: 40px;
+}
+.section-services .row .col-12{
+    display: flex;
 }
 .section-services .row .col{
     border: 1px solid #88888810;
@@ -138,15 +140,15 @@ i{
 .section-qeustions h2{
     font-size: 40px;
 }
+.section-qeustions .pic img{
+    max-width: 100%;
+}
 /* --------------------data------------------------ */
 .section-data{
     background-color: #2570ff;
     color: #fff;
     margin: 40px 0px;
-    padding: 80px 0px;
-}
-.section-data .container .row .col-12{
-    align-items: center;
+    padding: 80px 15px;
 }
 .section-data .col-12  p:first-child{
     font-size: 50px;
@@ -155,7 +157,6 @@ i{
 .section-data .txt  p:first-child{
     font-size: 40px;
     margin: 20px 50px;
-    margin-bottom: 20px;
 }
 .section-data .col-12 p+p{
     font-size: 20px;
@@ -175,13 +176,13 @@ i{
     color: #fff;
     margin-left: 50px;
 }
-.section-data .col-data{
+.section-data .data{
     background-color: #ffffff10;
     border: 1px solid #ffffff30;
     border-radius: 10px;
-    padding: 10px;
     margin-bottom: 20px;
 }
+/* --------------------------------------------------------------- */
 .section-stepWork .number img{
     border-radius: 100%;
     box-shadow: 0px 0px 10px #999;
@@ -239,10 +240,6 @@ i{
 .section-projects .projects-txt p+p{
     font-size: 20px;
 }
-/* stepwsork */
-.section-stepWork h2{
-    margin-left: 50px;
-}
 /* --------------------signup------------------------ */
 .section-signup .pic img{
     width: 100%;
@@ -251,16 +248,19 @@ i{
     margin: 80px 50px;
 }
 .section-signup .keyInList{
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-size: 40px;
     border: 1px solid #88888840;
     border-radius: 5px;
-    margin: 0px 50px;
+    padding: 0 20px;
 }
-.section-signup .keyInList h2{
-    margin: 40px;
+.section-signup .keyInList p{
+    text-align: center;
+    color: #555;
+    margin: 0 0px 30px;
 }
 .section-signup .keyInList input{
     width: 100%;
@@ -280,6 +280,7 @@ i{
     width: 30%;
     padding: 5px;
     font-size: 15px;
+    margin-bottom: 20px;
 }
 /* ---------------------section-emailsubmit------------------------- */
 .section-emailsubmit{
@@ -499,9 +500,9 @@ i{
         font-size: 30px;
     }
     /* --------------------------------------------------------------- */
-    .section-data .col-data{
+    .section-data .data{
         text-align: center;
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
     .section-data .txt  p:first-child{
         margin: 20px 30px;
@@ -550,6 +551,9 @@ i{
         resize: vertical;
         width: 100%;
     }
+    .section-signup .keyInList .btn-green {
+        width: 100px;
+    }
     /* --------------------------------------------------------------- */
     .section-emailsubmit p{
         width: 75%;
@@ -588,10 +592,6 @@ i{
 
 
 @media screen and (width >= 768px) {
-    .wrap{
-        /* width: 1200px; */
-        margin: auto;
-    }
    
     /* -----頂端導覽列----- */
     .section-header{
@@ -601,14 +601,6 @@ i{
         top: 0;
         left: 0;
         z-index: 2;
-    }
-    .main-header {
-        max-width: 1200px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: auto;
-        padding: 20px;
     }
     .main-nav {
         display: flex;
@@ -622,12 +614,13 @@ i{
         margin: 20px;
         font-size: 18px;
     }
-    .main-nav li a:hover {
+    .main-nav li:first-child a{
         text-decoration: underline gray;
         text-underline-offset: 10px;
     }
-    .subscribe {
-        margin-left: 50px;
+    .main-nav li a:hover {
+        text-decoration: underline gray;
+        text-underline-offset: 10px;
     }
     .XHB,
     .HB{
@@ -641,7 +634,6 @@ i{
         flex-direction: row-reverse;
     }
     .section-creative .txt .main-title{
-        width: 75%;
         font-size: 50px;
     }
     .section-creative h2{
@@ -662,13 +654,25 @@ i{
     .section-data .container .row .txt{
         padding: 0px 20px 15px;
     }
+    .section-data .row .row .data{
+        width: 41.666666%;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
     /* ------------------stepWork-------------------------- */
     .section-stepWork{
         margin: auto;
     }
-    .section-stepWork h2{
-        font-size: 40px;
+    .section-stepWork .sub-title{
+        font-size: 30px;
+        max-width: 1200px;
+        margin: auto;
         margin-bottom: 50px;
+    }
+    .section-stepWork .pic img{
+        max-width: 100%;
     }
     .section-stepWork .container {
         display: flex;
@@ -682,7 +686,7 @@ i{
         display: flex;
         justify-content: flex-start;
         order: 1;
-        margin: 20px 0px;
+        /* margin: 20px 0px; */
     }
     .section-stepWork .container:nth-child(odd) .number {
         display: flex;
@@ -692,7 +696,7 @@ i{
         order: -1;
         display: flex;
         justify-content: flex-end;
-        margin: 20px 0px;
+        /* margin: 20px 0px; */
     }
     .section-stepWork .container:nth-child(even) .number {
         display: flex;
