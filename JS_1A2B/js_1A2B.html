@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: monospace, serif;
+        }
+
+        .wrap {
+            width: 600px;
+            padding: 20px;
+            border: 2px solid darkgray;
+            position: relative;
+            top: 80px;
+            margin: auto;
+        }
+
+        [class*="btn-"]:hover {
+            cursor: pointer;
+            background-color: lightgray;
+        }
+
+        .section-btnFunc {
+            font-size: 0;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 2px solid darkgray;
+            border-radius: 3px;
+        }
+
+        .btn-func {
+            font-size: 20px;
+            width: 200px;
+            padding: 5px;
+            background-color: lightpink;
+            border: none;
+        }
+
+        .btn-func:nth-child(even) {
+            border-left: 2px solid darkgray;
+            border-right: 2px solid darkgray;
+        }
+
+        .section-showResult {
+            width: 594px;
+            height: 300px;
+            border: 2px solid darkgray;
+            border-radius: 4px;
+            margin: auto;
+            overflow-y: scroll;
+        }
+
+        .section-guess {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            border: 2px solid darkgray;
+            border-radius: 4px;
+            font-size: 20px;
+        }
+
+        .section-guess input {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            font-size: 20px;
+        }
+
+        .section-guess .txt {
+            background-color: lightgray;
+            border: none;
+            padding: 0 5px;
+            border-right: 2px solid darkgray;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-guess button {
+            font-size: 20px;
+            padding: 5px 10px;
+            background-color: lightgreen;
+            color: #000;
+            border: none;
+            border-left: 2px solid darkgray;
+        }
+
+        /* ------------------------------------- */
+        .newdiv {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            padding: 10px;
+        }
+
+        .newdiv:nth-child(n+2) {
+            border-top: 2px solid darkgray;
+        }
+
+        .result-fail {
+            width: fit-content;
+            padding: 5px;
+            margin-right: 3px;
+            border-radius: 2px;
+            background-color: lightcoral;
+        }
+
+        .result-success {
+            width: fit-content;
+            padding: 5px;
+            margin-right: 3px;
+            border-radius: 2px;
+            background-color: lightgreen;
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="section-btnFunc">
+            <button class="btn-func start">開始</button>
+            <button class="btn-func renew" disabled>重新開始</button>
+            <button class="btn-func showAnswer" disabled>看答案</button>
+        </div>
+
+        <div class="section-showResult"></div>
+
+        <div class="section-guess">
+            <div class="txt">
+                <p>猜答案</p>
+            </div>
+            <input type="text" id="input">
+            <button type="submit" class="btn-guess guess" disabled>猜!</button>
+        </div>
+    </div>
+
+    <script>
+
+        // 宣告
+        let start = document.querySelector(".start");
+        let renew = document.querySelector(".renew");
+        let showAnswer = document.querySelector(".showAnswer");
+        let guess = document.querySelector(".guess");
+        let showResult = document.querySelector(".section-showResult");
+        let inputNum = document.querySelector("input");
+        let answer;
+        let answerArray;
+        let A;
+        let B;
+
+        // 開始鍵
+        start.addEventListener('click', () => {
+            // 產生4個不重複亂數
+            newRandom();
+
+            // strt鎖住 其餘button可被click
+            start.disabled = true;
+            renew.disabled = false;
+            showAnswer.disabled = false;
+            guess.disabled = false;
+        });
+
+        // 看答案鍵
+        showAnswer.addEventListener('click', () => {
+            alert(answer);
+        });
+
+        // 重新開始鍵
+        renew.addEventListener('click', () => {
+
+            inputNum.value = "";
+            showResult.innerHTML = "";
+            // newRandom();
+
+            start.disabled = false;
+            renew.disabled = true;
+            showAnswer.disabled = true;
+            guess.disabled = true;
+
+        });
+
+        //按下ENTER鍵 = 按下猜答案 
+        inputNum.addEventListener('keyup',(e)=>{
+            if(e.code === 'Enter'){guess.click();}
+        });
+
+        // 猜答案鍵
+        guess.addEventListener('click', () => {
+
+            let nums = inputNum.value.split("").map((x) => {
+                return parseInt(x, 10)
+            });
+
+            var checkRepeat = Array.from(new Set(nums));
+            if (nums.length != 4 || checkRepeat.length != 4) {
+                alert('請確認輸入值是否正確!');
+            }
+            else {
+                let interactNums = nums.filter((e) => answerArray.includes(e));
+                let aNUms = nums.filter((e) => answerArray.includes(e) && nums.indexOf(e) == answerArray.indexOf(e))
+                B = interactNums.length - aNUms.length;
+                A = aNUms.length;
+
+                // 產生區塊顯示猜答案結果
+                let newDiv = document.createElement('div');
+                let showAB = document.createElement('div');
+                let checkAnswer = document.createTextNode(`${A}A${B}B`);
+                let TextNode = document.createTextNode(inputNum.value);
+
+                if (A == 4) {
+                    showAB.setAttribute('class', 'result-success');
+ 
+                }
+                else {
+                    showAB.setAttribute('class', 'result-fail');
+                }
+
+                newDiv.setAttribute('class', 'newdiv');
+
+                showAB.appendChild(checkAnswer);
+                newDiv.appendChild(showAB);
+                newDiv.appendChild(TextNode);
+                showResult.appendChild(newDiv);
+
+                // 清空輸入欄
+                inputNum.value = "";
+
+                //  4A0B 顯示遊戲結束
+                if(A == 4){
+                    alert('恭喜答對!遊戲結束~請按下重新開始鍵')
+                    guess.disabled = true;
+                }
+            }
+
+
+        });
+
+        function newRandom() {
+            // 產生4個不重複亂數
+            answerArray = [];
+            while (answerArray.length < 4) {
+                let randomNUm = Math.floor(Math.random() * 10);
+                if (answerArray.includes(randomNUm) != true) {
+                    answerArray.push(randomNUm);
+                }
+            }
+
+            answer = answerArray.join('').toString();
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
