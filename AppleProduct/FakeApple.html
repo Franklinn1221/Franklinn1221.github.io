@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Fake Apple</title>
+    <link rel="stylesheet" href="./grid.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            font-family: monospace, serif;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            background-color: dimgrey;
+        }
+
+        .main-nav {
+            display: flex;
+        }
+
+        .main-nav button {
+            display: inline-block;
+            padding: 15px;
+            font-size: 15px;
+            background-color: transparent;
+            border: none;
+            color: beige
+        }
+
+        .main-nav button:hover {
+            background-color: lightgray;
+            color: black;
+            cursor: pointer;
+            transition: 1s;
+        }
+
+        .pic {
+            display: flex;
+            align-items: center;
+            margin: 50px 0px;
+        }
+
+        img {
+            vertical-align: middle;
+            width: 100%;
+            
+        }
+
+        p {
+            font-size: 25px;
+            font-weight: 800;
+            margin: 10px 0px;
+        }
+
+        span {
+            color: gray;
+        }
+
+        .btn-color {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 40px;
+            height: 40px;
+            mix-blend-mode: multiply;
+            border: none;
+            border-radius: 20px;
+            margin: 0 5px;
+
+        }
+
+        .btn-color:focus {
+            border: 2px solid #fff;
+        }
+
+        .btn-color:hover {
+            cursor: pointer;
+        }
+
+        .typebtn {
+            width: 200px;
+            background-color: whitesmoke;
+            box-sizing: border-box;
+            border: 1px solid #8888;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        .typebtn p {
+            font-size: 20px;
+            font-weight: 100;
+        }
+
+        .typebtn span {
+            font-size: 15px;
+            display: inline-block;
+            padding: 5px;
+        }
+
+        .typebtn:focus {
+            outline: 4px solid rgba(0, 125, 250, .6);
+            outline-offset: 0px;
+            transition: .1s;
+        }
+
+        .typebtn:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="main-nav">
+            <button id="model" type="button" onclick="Initial(this.innerText)">iPhone</button>
+            <button id="model" type="button" onclick="Initial(this.innerText)">MacbookPro</button>
+            <button id="model" type="button" onclick="Initial(this.innerText)">iPadAir</button>
+        </div>
+    </header>
+
+    <div class="section-productSpecific">
+        <div class="container">
+            <div class="row">
+                <div class="pic col-12 col-md-6">
+                    <img id="productImg" src="" alt="">
+                </div>
+                <div class="specification col-12 col-md-6">
+                    <div class="color"></div>
+                    <div class="type"></div>
+                    <div class="price"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        let Product = {
+            "iPhone": {
+                type: {
+                    name: "iPhone14",
+                    image: "./images/main-pic.jfif"
+                },
+                outline: [
+                    { color: "藍色", image: "./images/iphone-14-finish-select-202209-6-1inch-blue.jfif", btnImg: "./images/finish-blue-202209.jfif" },
+                    { color: "午夜色", image: "./images/iphone-14-finish-select-202209-6-1inch-midnight.jfif", btnImg: "./images/finish-midnight-202209.jfif" },
+                    { color: "紫色", image: "./images/iphone-14-finish-select-202209-6-1inch-purple.jfif", btnImg: "./images/finish-purple-202209.jfif" },
+                    { color: "紅色", image: "./images/iphone-14-finish-select-202209-6-1inch-product-red.jfif", btnImg: "./images/finish-red-202209.jfif" },
+                    { color: "星光色", image: "./images/iphone-14-finish-select-202209-6-1inch-starlight.jfif", btnImg: "./images/finish-starlight-202209.jfif" },
+                ],
+                Specfic: {
+                    fit: [
+                        { storage: "128GB", price: 27900 },
+                        { storage: "256GB", price: 31400 },
+                        { storage: "512GB", price: 38400 }
+                    ]
+                }
+            },
+            "MacbookPro": {
+                type: {
+                    name: "MacbookPro14'",
+                    image: "./images/hero_14_16__bux8byft94oi_large.jpg"
+                },
+                outline: [
+                    { color: "太空灰色", image: "./images/mbp14-spacegray-select-202110_GEO_TW.jfif", btnImg: "./images/mbp-spacegray-select-202206_SW_COLOR.jfif" },
+                    { color: "銀色", image: "./images/mbp14-silver-select-202110_GEO_TW.jfif", btnImg: "./images/mbp-silver-select-202206_SW_COLOR.jfif" }
+                ],
+                Specfic: {
+                    fit: [
+                        { storage: "512GB", price: 59900 },
+                        { storage: "1TB", price: 65900 },
+                        { storage: "2TB", price: 77900 },
+                        { storage: "4TB", price: 95900 },
+                        { storage: "8TB", price: 131900 }
+                    ]
+                }
+            },
+            "iPadAir": {
+                type: {
+                    name: "iPadAir5",
+                    image: "./images/ipad-air-finish-unselect-gallery-1-202207.jfif"
+                },
+                outline: [
+                    { color: "藍色", image: "./images/ipad-air-finish-select-gallery-202211-blue.jfif", btnImg: "./images/ipad-air-finish-blue-2022.png" },
+                    { color: "太空灰色", image: "./images/ipad-air-finish-select-gallery-202211-space-gray.jfif", btnImg: "./images/ipad-air-finish-space-gray-2022.png" },
+                    { color: "紫色", image: "./images/ipad-air-finish-select-gallery-202211-purple.jfif", btnImg: "./images/ipad-air-finish-purple-2022.png" },
+                    { color: "粉色", image: "./images/ipad-air-finish-select-gallery-202211-pink.jfif", btnImg: "./images/ipad-air-finish-pink-2022.png" },
+                    { color: "星光色", image: "./images/ipad-air-finish-select-gallery-202211-starlight.jfif", btnImg: "./images/ipad-air-finish-starlight-2022.png" },
+                ],
+                Specfic: {
+                    fit: [
+                        { storage: "64GB", price: 19900 },
+                        { storage: "256GB", price: 24900 }
+                    ]
+                }
+            }
+        }
+
+    </script>
+
+    <script>
+
+        const model = document.getElementById('model');
+        const productImg = document.getElementById('productImg');
+
+        const picDiv = document.querySelector('.pic');
+        const colorSection = document.querySelector('.color');
+        const typeDiv = document.querySelector('.type');
+        const priceDiv = document.querySelector('.price');
+
+        function Initial(product) {
+            colorSection.innerHTML = "";
+            typeDiv.innerHTML = "";
+            priceDiv.innerHTML = "";
+            productImg.setAttribute('src', Product[product].type.image);
+
+            // 顏色區
+            let colorTitle = document.createElement('div');
+            let colorP = document.createElement('p');
+            colorP.innerHTML = '外觀。<span>挑選你喜愛的外觀。</span>';
+            colorTitle.appendChild(colorP);
+            colorSection.appendChild(colorTitle);
+
+            let colorDiv = document.createElement('div');
+
+            for (let item of Product[product].outline) {
+
+                let colorBtn = document.createElement('button');
+                colorBtn.setAttribute('class', `btn-color ${item.color}`);
+                colorBtn.setAttribute('Imgurl', item.image);
+                colorBtn.style.backgroundImage = `url(${item.btnImg})`;
+                colorDiv.appendChild(colorBtn);
+            }
+
+            colorSection.appendChild(colorDiv);
+
+            let colorBtns = document.getElementsByClassName('btn-color');
+
+            for (let btn of colorBtns) {
+                btn.addEventListener('click', function () {
+                    productImg.setAttribute('src', btn.getAttributeNode('Imgurl').value);
+                });
+            }
+
+            // 規格區
+            let typeTitle = document.createElement('div');
+            let typeTitleP = document.createElement('p');
+            typeTitleP.innerHTML = '儲存裝置。<span>你需要多少儲存空間？</span>';
+
+            typeTitle.appendChild(typeTitleP);
+            typeDiv.appendChild(typeTitle);
+
+            let typeSection = document.createElement('div');
+            typeSection.setAttribute('class', 'typeSection')
+
+            for (let item of Product[product].Specfic.fit) {
+
+                let typeBtn = document.createElement('button');
+                let typeBtnDiv = document.createElement('div');
+                let typeP = document.createElement('p');
+                let typeSpan = document.createElement('span');
+
+                typeBtn.setAttribute('price', item.price);
+                typeBtn.setAttribute('class', 'typebtn');
+                typeP.innerText = item.storage;
+
+                typeSpan.innerText = `NT$${item.price}`;
+                typeBtnDiv.appendChild(typeP);
+                typeBtnDiv.appendChild(typeSpan);
+
+                typeBtn.appendChild(typeBtnDiv);
+                typeSection.appendChild(typeBtn);
+            }
+
+            typeDiv.appendChild(typeSection);
+
+            // 價格區
+            let typeBtns = document.getElementsByClassName('typebtn');
+
+            for (let item of typeBtns) {
+
+                item.addEventListener('click', () => {
+                    priceDiv.innerHTML = "";
+                    let priceTitle = document.createElement('div');
+                    let priceTitleP = document.createElement('p');
+                    let priceNum = document.createElement('p');
+                    priceTitleP.innerHTML = '價格試算';
+
+                    priceTitle.appendChild(priceTitleP);
+                    priceDiv.appendChild(priceTitle);
+
+                    let price = item.getAttributeNode('price').value;
+                    priceNum.innerText = `NT$${price}`;
+
+                    priceDiv.appendChild(priceNum);
+
+                })
+            }
+        }
+
+    </script>
+</body>
+
+</html>
