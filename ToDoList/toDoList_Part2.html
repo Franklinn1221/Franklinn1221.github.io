@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ToDoList</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        indexegrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        indexegrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: monospace;
+        }
+
+        .container {
+            width: 600px;
+            border: 3px solid #000;
+            margin-top: 40px;
+            background-color: whitesmoke;
+
+        }
+
+        .title {
+            background-color: burlywood;
+        }
+
+        h1 {
+            font-size: 40px;
+            text-align: center;
+            border-bottom: 3px solid #000;
+            margin-bottom: 20px;
+        }
+
+        .toDoListArea {
+            height: 650px;
+            padding-right: 10px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        input {
+            font-size: 20px;
+        }
+
+        .add-input {
+            font-size: 20px;
+            background-color: transparent;
+        }
+
+        .btn i {
+            font-size: 20px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container p-0 col-12">
+        <div class="title">
+            <h1>To Do List</h1>
+        </div>
+        <div class="input-group mb-3 px-3">
+            <input type="text" class="form-control add-input" placeholder="todo...">
+            <button class="add-btn btn btn-outline-primary" type="button" id="button-addon2" onclick="addToDoItem()">Add
+                item</button>
+        </div>
+        <div class="toDoListArea p-3"></div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        indexegrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        // 宣告
+        let addInputValue;
+
+        // DOM
+        const container = document.querySelector('.container');
+        const toDoListArea = document.querySelector('.toDoListArea')
+        const addInput = document.querySelector('.add-input');
+
+        // Function
+        function addToDoItem() {
+
+            addInputValue = addInput.value;
+            if (addInput.value == "") {
+                alert('好像忘記輸入內容囉');
+            }
+            else {
+                let toDoListArr = [];
+                let toDoObj = {
+                    toDoItem: addInputValue,
+                    done: false
+                }
+
+                if (localStorage.getItem('toDoList') == null) {
+                    toDoListArr.push(toDoObj);
+                }
+                else {
+                    toDoListArr = JSON.parse(localStorage.getItem('toDoList'));
+                    toDoListArr.push(toDoObj);
+                }
+                localStorage.setItem('toDoList', JSON.stringify(toDoListArr));
+            }
+            addInput.value = "";
+            renderToDoItem();
+        }
+
+        function renderToDoItem() {
+            toDoListArea.innerHTML = "";
+            let toDoListArr = JSON.parse(localStorage.getItem('toDoList'));
+
+            if (toDoListArr != null) {
+                toDoListArr.forEach((item, index) => {
+
+                    let toDoListDiv = document.createElement('div');
+                    let checkBoxDiv = document.createElement('div');
+                    let checkBoxInput = document.createElement('input');
+                    let toDoListTxt = document.createElement('input');
+                    let editBtn = document.createElement('button');
+                    let saveBtn = document.createElement('button');
+                    let deleteBtn = document.createElement('button');
+
+                    toDoListDiv.setAttribute('class', 'input-group p-3 m-1 border-bottom border-2 border-secondary');
+                    checkBoxDiv.setAttribute('class', 'input-group-text border-0 bg-transparent');
+                    checkBoxInput.setAttribute('class', 'form-check-input mt-0');
+                    checkBoxInput.setAttribute('type', 'checkbox');
+                    checkBoxInput.checked = item.done;
+
+                    toDoListTxt.setAttribute('class', 'toDoListTxt form-control border-0 bg-transparent fs-4');
+                    toDoListTxt.setAttribute('type', 'text');
+                    toDoListTxt.disabled = true;
+                    toDoListTxt.value = item.toDoItem;
+
+                    editBtn.setAttribute('class', 'edit-btn btn btn-outline-warning border-0');
+                    saveBtn.setAttribute('class', 'save-btn btn btn-outline-success border-0');
+                    deleteBtn.setAttribute('class', 'delete-btn btn btn-outline-danger border-0');
+                    editBtn.setAttribute('type', 'button');
+                    saveBtn.setAttribute('type', 'button');
+                    deleteBtn.setAttribute('type', 'button');
+
+                    editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
+                    saveBtn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i>';
+                    deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+                    saveBtn.style.display = 'none';
+
+                    checkBoxDiv.appendChild(checkBoxInput);
+                    toDoListDiv.appendChild(checkBoxDiv);
+                    toDoListDiv.appendChild(toDoListTxt);
+                    toDoListDiv.appendChild(editBtn);
+                    toDoListDiv.appendChild(saveBtn);
+                    toDoListDiv.appendChild(deleteBtn);
+                    toDoListArea.appendChild(toDoListDiv);
+
+                    editBtn.addEventListener('click', function (e) {
+                        editToDoItem(index)
+                        saveBtn.style.display = 'inline-block'
+                        editBtn.style.display = 'none'
+                    })
+
+                    saveBtn.addEventListener('click', function (e) {
+                        saveToDoItem(index)
+                        saveBtn.style.display = 'none'
+                        editBtn.style.display = 'inline-block'
+                    })
+
+                    deleteBtn.addEventListener('click', function (e) {
+                        deleteToDoItem(index)
+                    });
+
+                    checkBoxInput.addEventListener('change', function (e) {
+                        checkToDoItemDone(index)
+                    })
+                })
+            }
+
+        }
+
+        function editToDoItem(index) {
+            let toDoListTxts = document.querySelectorAll('.toDoListTxt');
+            toDoListTxts[index].disabled = false;
+        }
+
+        function saveToDoItem(index) {
+            let toDoListTxts = document.querySelectorAll('.toDoListTxt');
+            let editInputValue = toDoListTxts[index].value;
+            let toDoListArr = JSON.parse(localStorage.getItem('toDoList'));
+            toDoListArr[index].toDoItem = editInputValue
+            localStorage.setItem('toDoList', JSON.stringify(toDoListArr));
+            toDoListTxts[index].disabled = true;
+        }
+
+        function deleteToDoItem(index) {
+            let toDoListArr = JSON.parse(localStorage.getItem('toDoList'));
+            toDoListArr.splice(index, 1);
+            localStorage.setItem('toDoList', JSON.stringify(toDoListArr));
+            renderToDoItem();
+        }
+
+        function checkToDoItemDone(index) {
+            let checkBoxInputs = document.querySelectorAll('.form-check-input');
+            if (checkBoxInputs[index].checked) {
+                let toDoListArr = JSON.parse(localStorage.getItem('toDoList'));
+                toDoListArr[index].done = true;
+                localStorage.setItem('toDoList', JSON.stringify(toDoListArr));
+            }
+            else {
+                let toDoListArr = JSON.parse(localStorage.getItem('toDoList'));
+                toDoListArr[index].done = false;
+                localStorage.setItem('toDoList', JSON.stringify(toDoListArr));
+            }
+        }
+
+        // Window.onload
+        window.onload = function () {
+            renderToDoItem();
+        }
+    </script>
+</body>
+
+</html>
